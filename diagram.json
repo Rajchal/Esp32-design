@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "author": "Anjal Rajchal",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 15.8,
+      "left": -105.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 63.8,
+      "left": -105.6,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 111.8,
+      "left": -105.6,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": 159.8,
+      "left": -105.6,
+      "attrs": { "color": "yellow" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:26", "btn1:1.r", "green", [ "h-14.21", "v-86.4" ] ],
+    [ "esp:27", "btn2:1.r", "green", [ "h-23.81", "v-48" ] ],
+    [ "esp:14", "btn3:1.r", "green", [ "h-33.41", "v-9.6" ] ],
+    [ "esp:12", "btn4:1.r", "green", [ "v0", "h-23.81", "v19.2" ] ],
+    [
+      "esp:GND.1",
+      "btn4:1.l",
+      "black",
+      [ "h-14.21", "v67.2", "h-105.6", "v-28.8", "h0", "v-19.2" ]
+    ],
+    [
+      "esp:GND.1",
+      "btn3:1.l",
+      "black",
+      [ "h-14.21", "v86.4", "h-115.2", "v-28.8", "h0", "v-76.8", "h0", "v-9.6" ]
+    ],
+    [ "esp:GND.1", "btn2:1.l", "black", [ "h-14.21", "v96", "h-124.8", "v-67.2" ] ],
+    [ "esp:GND.1", "btn1:1.l", "black", [ "h-14.21", "v105.6", "h-134.4", "v-230.4" ] ]
+  ],
+  "dependencies": {}
+}
