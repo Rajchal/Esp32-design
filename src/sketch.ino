@@ -54,22 +54,22 @@ void sendButtonPress(String button)
 
 void loop()
 {
-    if (digitalRead(BUTTON_A) == HIGH)
+    if (digitalRead(BUTTON_A) == LOW)
     {
         sendButtonPress("A");
         delay(500);
     }
-    if (digitalRead(BUTTON_B) == HIGH)
+    if (digitalRead(BUTTON_B) == LOW)
     {
         sendButtonPress("B");
         delay(500);
     }
-    if (digitalRead(BUTTON_C) == HIGH)
+    if (digitalRead(BUTTON_C) == LOW)
     {
         sendButtonPress("C");
         delay(500);
     }
-    if (digitalRead(BUTTON_D) == HIGH)
+    if (digitalRead(BUTTON_D) == LOW)
     {
         sendButtonPress("D");
         delay(500);
