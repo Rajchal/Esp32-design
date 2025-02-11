@@ -38,7 +38,7 @@ void sendButtonPress(String button)
         http.begin(serverUrl);
         http.addHeader("Content-Type", "application/json");
 
-        String payload = "{\"action\": \"button_pressed\", \"button\": \"" + button + "\",\"student\":\"Student-1\"}";
+        String payload = "{\"action\": \"button_pressed\", \"button\": \"" + button + "\"}";
         int httpResponseCode = http.POST(payload);
         Serial.print("HTTP Response code: ");
         Serial.println(httpResponseCode);
@@ -55,22 +55,22 @@ void loop()
 {
     if (digitalRead(BUTTON_A) == LOW)
     {
-        sendButtonPress("A");
+        sendButtonPress("A,Student-1");
         delay(500);
     }
     if (digitalRead(BUTTON_B) == LOW)
     {
-        sendButtonPress("B");
+        sendButtonPress("B,Student-1");
         delay(500);
     }
     if (digitalRead(BUTTON_C) == LOW)
     {
-        sendButtonPress("C");
+        sendButtonPress("C,Student-1");
         delay(500);
     }
     if (digitalRead(BUTTON_D) == LOW)
     {
-        sendButtonPress("D");
+        sendButtonPress("D,Student-1");
         delay(500);
     }
 }
