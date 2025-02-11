@@ -38,9 +38,8 @@ void sendButtonPress(String button)
         http.begin(serverUrl);
         http.addHeader("Content-Type", "application/json");
 
-        String payload = "{\"action\": \"button_pressed\", \"button\": \"" + button + "\"}";
+        String payload = "{\"action\": \"button_pressed\", \"button\": \"" + button + "\",\"student\":\"Student-1\"}";
         int httpResponseCode = http.POST(payload);
-
         Serial.print("HTTP Response code: ");
         Serial.println(httpResponseCode);
 
