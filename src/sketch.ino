@@ -1,16 +1,16 @@
-#include <WiFi.h>
-#include <HTTPClient.h>
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
 
 // WiFi Credentials
-const char *ssid = "Wokwi-GUEST";                           // Change to your WiFi SSID
-const char *password = "";                                  // Change to your WiFi Password
-const char *serverUrl = "http://64.227.171.4:5000/command"; // Change <RASPBERRY_PI_IP>
+const char *ssid = "CarpeDiem";                           // Change to your WiFi SSID
+const char *password = "mariojudah";                                  // Change to your WiFi Password
+const char *serverUrl = "http://192.168.4.1:5000/answer"; 
 
-// Define button pins
-#define BUTTON_A 12
-#define BUTTON_B 14
-#define BUTTON_C 27
-#define BUTTON_D 26
+
+#define BUTTON_A 5   
+#define BUTTON_B 4  
+#define BUTTON_C 0   
+#define BUTTON_D 2   
 
 void setup()
 {
@@ -34,11 +34,13 @@ void sendButtonPress(String button)
 {
     if (WiFi.status() == WL_CONNECTED)
     {
+        WiFiClient client;
         HTTPClient http;
-        http.begin(serverUrl);
+        http.begin(client, serverUrl); 
+
         http.addHeader("Content-Type", "application/json");
 
-        String payload = "{\"action\": \"button_pressed\", \"button\": \"" + button + "\"}";
+        String payload = "{\"student\": \"Anjal\", \"button\": \"" + button + "\"}";
         int httpResponseCode = http.POST(payload);
         Serial.print("HTTP Response code: ");
         Serial.println(httpResponseCode);
@@ -55,22 +57,26 @@ void loop()
 {
     if (digitalRead(BUTTON_A) == LOW)
     {
-        sendButtonPress("A,Student-1");
+        sendButtonPress("0");
+        Serial.println("Button A pressed");
         delay(500);
     }
     if (digitalRead(BUTTON_B) == LOW)
     {
-        sendButtonPress("B,Student-1");
+        sendButtonPress("1");
+        Serial.println("Button B pressed");
         delay(500);
     }
     if (digitalRead(BUTTON_C) == LOW)
     {
-        sendButtonPress("C,Student-1");
+        sendButtonPress("2");
+        Serial.println("Button C pressed");
         delay(500);
     }
     if (digitalRead(BUTTON_D) == LOW)
     {
-        sendButtonPress("D,Student-1");
+        sendButtonPress("3");
+        Serial.println("Button D pressed");
         delay(500);
     }
 }
