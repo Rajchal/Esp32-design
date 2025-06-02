@@ -2,8 +2,8 @@
 #include <ESP8266HTTPClient.h>
 
 // WiFi Credentials
-const char *ssid = "CarpeDiem";                           // Change to your WiFi SSID
-const char *password = "mariojudah";                                  // Change to your WiFi Password
+const char *ssid = "sachet";                           // Change to your WiFi SSID
+const char *password = "sachet123";                                  // Change to your WiFi Password
 const char *serverUrl = "http://192.168.4.1:5000/answer"; 
 
 
@@ -40,7 +40,7 @@ void sendButtonPress(String button)
 
         http.addHeader("Content-Type", "application/json");
 
-        String payload = "{\"student\": \"Anjal\", \"button\": \"" + button + "\"}";
+        String payload = "{\"student\": \"Sachet\", \"button\": \"" + button + "\"}";
         int httpResponseCode = http.POST(payload);
         Serial.print("HTTP Response code: ");
         Serial.println(httpResponseCode);
